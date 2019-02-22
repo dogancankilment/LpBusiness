@@ -1,13 +1,23 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.conf import settings
 
 urlpatterns = patterns('',
                        url(r'^$',
-                           'lpbusiness.views.home',
+                           'home.views.home',
                            name='home'),
+
+                       url(r'^login',
+                           'authentico.views.login',
+                           name='login'),
+
+                       url(r'^register',
+                           'authentico.views.register',
+                           name='register'),
+
+                       url(r'^logout$',
+                           'authentico.views.logout',
+                           name='logout'),
+
                        )
 
 if settings.DEBUG:
