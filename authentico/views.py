@@ -16,6 +16,11 @@ def logout(request):
     return redirect(reverse('home'))
 
 
+# will be edit
+def forgotpass(request):
+    return render_to_response("user/forgotpassword.html")
+
+
 def register(request, template_name="user/register.html"):
     form = UserCreateForm(request.POST or None)
 
