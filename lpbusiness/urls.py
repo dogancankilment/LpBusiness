@@ -18,6 +18,10 @@ urlpatterns = patterns('',
                            'authentico.views.logout',
                            name='logout'),
 
+                       url(r'^forgotpass',
+                           'authentico.views.forgotpass',
+                           name='forgotpass'),
+
                        )
 
 if settings.DEBUG:
