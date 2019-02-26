@@ -1,0 +1,2 @@
+mdi-logos and extras;
+https://cdn.materialdesignicons.com/1.1.34/
