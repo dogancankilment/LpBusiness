@@ -1,0 +1,141 @@
+{% extends "home/blank.html" %}
+
+{% load staticfiles %}
+
+{% block page_content %}
+        {% if page_title == "Customer" %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0">{{ page_title }}</h3>
+                            <p class="text-muted m-b-30 font-13"> Create New One</p>
+                            <form method="POST" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="exampleInputuname" class="col-sm-3 control-label">Full-Name</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                                            <input type="text" class="form-control" id="fullname" name="fullname" required="required" placeholder="Username"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                                            <input type="email" class="form-control" id="email" name="email" required="required" placeholder="Email"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Phone</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-mobile"></i></div>
+                                            <input type="text" class="form-control" id="phone" name="phone" required="required" placeholder="Phone"> </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+
+                                <div class="form-group m-b-0">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Save</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% elif page_title == "presales" %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0">{{ page_title }}</h3>
+                            <p class="text-muted m-b-30 font-13"> Create New One</p>
+                            <form method="POST" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="exampleInputuname" class="col-sm-3 control-label">Company / Project Name</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                                            <input type="text" class="form-control" id="company" name="company" placeholder="Company / Project"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-sm-3 control-label">Vendor</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                                            <input type="text" class="form-control" id="vendor" name="vendor" placeholder="Vendor"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-sm-3 control-label">Partner</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                                            <input type="text" class="form-control" id="partner" name="partner" placeholder="Partner"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="col-sm-3 control-label">Customer</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                                            <input type="text" class="form-control" id="customer" name="customer" placeholder="Customer"> </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Product</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-mobile"></i></div>
+                                            <input type="text" class="form-control" id="product" name="product" placeholder="Product"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-mobile"></i></div>
+                                            <textarea class="form-control" id="description" name="description" placeholder="Description"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Date</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-mobile"></i></div>
+                                            <input type="text" class="form-control" id="date" name="date"  placeholder="Date"> </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="ti-mobile"></i></div>
+                                            <input type="text" class="form-control" id="status" name="status"  placeholder="Status"> </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+
+                                <div class="form-group m-b-0">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Save</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% elif page_title = "postsales" %}
+
+            {% elif page_title == "case" %}
+
+            {% elif page_title == "support" %}
+
+    {% endif %}
+
+{% endblock page_content %}
