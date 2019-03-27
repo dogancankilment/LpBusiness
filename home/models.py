@@ -42,32 +42,62 @@ from django.db import models
 
 
 class Customer(models.Model):
-    title = models.CharField(max_length=100)
+    fullname = models.CharField(max_length=100)
     mail = models.EmailField()
     phone = models.CharField(max_length=100)
 
 
 class Partner(models.Model):
-    title = models.CharField(max_length=100)
+    fullname = models.CharField(max_length=100)
     mail = models.EmailField()
     phone = models.CharField(max_length=100)
-    customer = models.ForeignKey(Customer)
 
 
 class Vendor(models.Model):
-    title = models.CharField(max_length=100)
+    fullname = models.CharField(max_length=100)
     mail = models.EmailField()
     phone = models.CharField(max_length=100)
-    customer = models.ForeignKey(Customer)
-    partner = models.ForeignKey(Partner)
 
 
-class Project(models.Model):
-    title = models.CharField(max_length=100)
-    product = models.CharField(max_length=100)
-    information = models.CharField(max_length=100)
-    notes = models.TextField()
-    status = models.BooleanField(default=False)
+class PreSales(models.Model):
+    company = models.CharField(max_length=100)
+    vendor = models.CharField(max_length=100)
+    partner = models.CharField(max_length=100)
+    customer = models.CharField(max_length=100)
+    poc_product = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
+
+
+class PostSales(models.Model):
+    company = models.CharField(max_length=100)
+    coming_from = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+    postsale = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
+
+
+class Support(models.Model):
+    company = models.CharField(max_length=100)
+    vendor = models.CharField(max_length=100)
+    partner = models.CharField(max_length=100)
+    customer = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
+
+
+class Case(models.Model):
+    case_no = models.CharField(max_length=100)
+    date = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    solution = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
 
 
 class DemoCenter(models.Model):
@@ -80,3 +110,14 @@ class DemoCenter(models.Model):
     password = models.CharField(max_length=100)
     console_username = models.CharField(max_length=100)
     console_password = models.CharField(max_length=100)
+
+
+# class Project(models.Model):
+#     title = models.CharField(max_length=100)
+#     product = models.CharField(max_length=100)
+#     information = models.CharField(max_length=100)
+#     notes = models.TextField()
+#     status = models.BooleanField(default=False)
+#     customer = models.ForeignKey(Customer)
+#     partner = models.ForeignKey(Partner)
+#     vendor = models.ForeignKey(Vendor)
