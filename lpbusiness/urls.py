@@ -22,6 +22,62 @@ urlpatterns = patterns('',
                            'authentico.views.forgotpass',
                            name='forgotpass'),
 
+                       url(r'^new-customer',
+                           'home.views.new_customer',
+                           name='new_customer'),
+
+                       url(r'^new-partner',
+                           'home.views.new_partner',
+                           name='new_partner'),
+
+                       url(r'^new-vendor',
+                           'home.views.new_vendor',
+                           name='new_vendor'),
+
+                       url(r'^new-presale',
+                           'home.views.new_presale',
+                           name='new_presale'),
+
+                       url(r'^new-postsale',
+                           'home.views.new_postsale',
+                           name='new_postsale'),
+
+                       url(r'^new-case',
+                           'home.views.new_case',
+                           name='new_case'),
+
+                       url(r'^new-support',
+                           'home.views.new_support',
+                           name='new_support'),
+
+                       url(r'^show-customers',
+                           'home.views.show_customers',
+                           name='show_customers'),
+
+                       url(r'^show-partners',
+                           'home.views.show_partners',
+                           name='show_partners'),
+
+                       url(r'^show-vendors',
+                           'home.views.show_vendors',
+                           name='show_vendors'),
+
+                       url(r'^show-presales',
+                           'home.views.show_presales',
+                           name='show_presales'),
+
+                       url(r'^show-postsales',
+                           'home.views.show_postsales',
+                           name='show_postsales'),
+
+                       url(r'^show-case',
+                           'home.views.show_case',
+                           name='show_case'),
+
+                       url(r'^show-support',
+                           'home.views.show_support',
+                           name='show_support'),
+
                        )
 
 if settings.DEBUG:
