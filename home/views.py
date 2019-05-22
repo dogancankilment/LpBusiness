@@ -10,18 +10,22 @@ from .models import *
 
 
 def home(request):
-    all_customers = Customer.objects.all()
-    all_vendors = Vendor.objects.all()
-    all_partners = Partner.objects.all()
-
-    len_customers = len(all_customers)
-    len_vendors = len(all_vendors)
-    len_partners = len(all_partners)
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
 
     c = {"request": request,
-         "len_customers": len_customers,
-         "len_partners": len_partners,
-         "len_vendors": len_vendors}
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
@@ -30,6 +34,15 @@ def home(request):
 
 def new_customer(request):
     page_title = "Customer"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
 
     if request.POST:
         new_one = Customer()
@@ -41,15 +54,31 @@ def new_customer(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-customer.html", c)
 
 
 def new_partner(request):
     page_title = "Partner"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
 
     if request.POST:
         new_one = Partner()
@@ -61,16 +90,32 @@ def new_partner(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-partner.html", c)
 
 
 def new_vendor(request):
     page_title = "Vendor"
 
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
     if request.POST:
         new_one = Vendor()
         new_one.fullname = request.POST["fullname"]
@@ -81,15 +126,31 @@ def new_vendor(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-vendor.html", c)
 
 
 def new_presale(request):
-    page_title = "PreSale"
+    page_title = "Presales"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
 
     if request.POST:
         new_one = Vendor()
@@ -101,16 +162,32 @@ def new_presale(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-presale.html", c)
 
 
 def new_postsale(request):
     page_title = "PostSale"
 
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
     if request.POST:
         new_one = Vendor()
         new_one.fullname = request.POST["fullname"]
@@ -121,16 +198,32 @@ def new_postsale(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-postsale.html", c)
 
 
 def new_case(request):
     page_title = "Case"
 
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
     if request.POST:
         new_one = Vendor()
         new_one.fullname = request.POST["fullname"]
@@ -141,16 +234,32 @@ def new_case(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-case.html", c)
 
 
 def new_support(request):
     page_title = "Support"
 
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
     if request.POST:
         new_one = Vendor()
         new_one.fullname = request.POST["fullname"]
@@ -161,36 +270,207 @@ def new_support(request):
         return redirect(reverse(home))
 
     c = {"request": request,
-         "page_title": page_title}
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
 
     c.update(csrf(request))
 
-    return render_to_response("home/add-new.html", c)
+    return render_to_response("new/new-support.html", c)
 
 
 def show_customers(request):
-    return render_to_response("home/blank.html")
+    page_title = "Customers"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    all = Customer.objects.all()
+
+    c = {"request": request,
+         "page_title": page_title,
+         "all": all,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_partners(request):
-    return render_to_response("home/blank.html")
+    page_title = "Partners"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_vendors(request):
-    return render_to_response("home/blank.html")
+    page_title = "Vendors"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_presales(request):
-    return render_to_response("home/blank.html")
+    page_title = "Pre-Sales"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_postsales(request):
-    return render_to_response("home/blank.html")
+    page_title = "Post-Sales"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_case(request):
-    return render_to_response("home/blank.html")
+    page_title = "Case"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
 
 
 def show_support(request):
-    return render_to_response("home/blank.html")
+    page_title = "Support"
+
+    # counts
+    customers_count = len(Customer.objects.all())
+    vendor_count = len(Vendor.objects.all())
+    partners_count = len(Partner.objects.all())
+    presales_count = len(PreSales.objects.all())
+    postsales_count = len(PostSales.objects.all())
+    case_count = len(Case.objects.all())
+    support_count = len(Support.objects.all())
+
+    c = {"request": request,
+         "page_title": page_title,
+         "customers_count": customers_count,
+         "vendor_count": vendor_count,
+         "partners_count": partners_count,
+         "presales_count": presales_count,
+         "postsales_count": postsales_count,
+         "case_count": case_count,
+         "support_count": support_count}
+
+    c.update(csrf(request))
+
+    return render_to_response("show/show-customers.html", c)
