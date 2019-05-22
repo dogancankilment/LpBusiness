@@ -1,0 +1,45 @@
+{% extends "home/blank.html" %}
+
+{% load staticfiles %}
+
+{% block default_content %}
+
+<div class="col-sm-12">
+    <div class="white-box">
+        <h3 class="box-title m-b-0">{{ page_title }}</h3>
+        <p class="text-muted m-b-30">Hi, If you want you can export data to Copy, CSV, Excel, PDF & Print with buttons</p>
+        <div class="table-responsive">
+            <table id="example23" class="display nowrap" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th style="text-align: center">ID</th>
+                    <th style="text-align: center">Full Name</th>
+                    <th style="text-align: center">E-Mail</th>
+                    <th style="text-align: center">Phone</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th style="text-align: center">ID</th>
+                    <th style="text-align: center">Full Name</th>
+                    <th style="text-align: center">E-Mail</th>
+                    <th style="text-align: center">Phone</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                {% for i in all %}
+                    <tr>
+                        <td style="text-align: center">{{ forloop.counter }}</td>
+                        <td style="text-align: center">{{ i.fullname }}</td>
+                        <td style="text-align: center">{{ i.mail }}</td>
+                        <td style="text-align: center">{{ i.phone }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock default_content %}
