@@ -8,11 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ STATIC_URL }}static/plugins/images/favicon.png">
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>LinkPlus</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ STATIC_URL }}static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="{{ STATIC_URL }}static/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}static/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet">
     <!-- animation CSS -->
     <link href="{{ STATIC_URL }}static/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -89,40 +91,41 @@
                             <li><a href="/logout"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
                         </ul>
                     </li>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-emoticon fa-fw"></i> <span class="hide-menu">Customers<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li><a href="#" class="waves-effect"><i class="mdi mdi-emoticon fa-fw"></i><span class="hide-menu">Customers<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ customers_count }}</span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="/show-customers"><i class="fa-fw">S</i><span class="hide-menu">Show All Customers</span></a></li>
                             <li><a href="/new-customer"><i class="fa-fw">A</i><span class="hide-menu">Add New Customer</span></a></li>
                         </ul>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i> <span class="hide-menu">Partner<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i> <span class="hide-menu">Partner<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ partners_count }}</span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="/show-partners"><i class="fa-fw">S</i><span class="hide-menu">Show All Partners</span></a></li>
                             <li><a href="/new-partner"><i class="fa-fw">A</i><span class="hide-menu">Add New Partner</span></a></li>
                         </ul>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-account-check fa-fw"></i> <span class="hide-menu">Vendor<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-account-check fa-fw"></i> <span class="hide-menu">Vendor<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ vendors_count }}</span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="/show-vendors"><i class="fa-fw">S</i><span class="hide-menu">Show All Vendors</span></a></li>
                             <li><a href="/new-vendor"><i class="fa-fw">A</i><span class="hide-menu">Add New Vendor</span></a></li>
                         </ul>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-content-copy fa-fw"></i> <span class="hide-menu">Sales<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-cash-usd fa-fw"></i> <span class="hide-menu">Pre-Sales<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ presales_count }}</span></span></a>
                          <ul class="nav nav-second-level">
-                            <li><a href="/show-presales"><i class="fa-fw">S</i><span class="hide-menu">Pre-Sales</span></a></li>
-                            <li><a href="/show-postsales"><i class="fa-fw">S</i><span class="hide-menu">Post-Sales</span></a></li>
-                            <li><a href="/new-presale"><i class="fa-fw">A</i><span class="hide-menu">Pre-Sales</span></a></li>
-                            <li><a href="/new-postsale"><i class="fa-fw">A</i><span class="hide-menu">Post-Sales</span></a></li>
+                            <li><a href="/show-presales"><i class="fa-fw">S</i><span class="hide-menu">Show All Pre-Sales</span></a></li>
+                            <li><a href="/new-presale"><i class="fa-fw">A</i><span class="hide-menu">Add New Pre-Sale</span></a></li>
                         </ul>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Case<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-calendar fa-fw"></i> <span class="hide-menu">Post-Sales<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ postsales_count}}</span></span></a>
+                         <ul class="nav nav-second-level">
+                            <li><a href="/show-postsales"><i class="fa-fw">S</i><span class="hide-menu">Show All Post-Sales</span></a></li>
+                            <li><a href="/new-postsale"><i class="fa-fw">A</i><span class="hide-menu">Add New Post-Sale</span></a></li>
+                        </ul>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Case<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ case_count }}</span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="/show-case"><i class="fa-fw">S</i><span class="hide-menu">Show All Cases</span></a></li>
                             <li><a href="/new-case"><i class="fa-fw">A</i><span class="hide-menu">Add New Case</span></a></li>
                         </ul>
-                    <li> <a href="/show-customers" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Support<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">9</span></span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-phone fa-fw"></i> <span class="hide-menu">Support<span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">{{ support_count }}</span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="/show-support"><i class="fa-fw">S</i><span class="hide-menu">Show All Support</span></a></li>
                             <li><a href="/new-support"><i class="fa-fw">A</i><span class="hide-menu">Add New Support</span></a></li>
                         </ul>
-                        
-                
                 </ul>
             </div>
         </div>
@@ -144,17 +147,23 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="white-box">
 
-                            {% block page_content %}
+                {% block default_content %}
 
-                            {% endblock page_content %}
+                {% endblock default_content %}
 
-                        </div>
-                    </div>
-                </div>
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="white-box">-->
+
+<!--                            {% block page_content %}-->
+
+<!--                            {% endblock page_content %}-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
             </div>
@@ -181,6 +190,62 @@
     <script src="{{ STATIC_URL }}static/js/mask.js"></script>
     <!--Style Switcher -->
     <script src="{{ STATIC_URL }}static/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="{{ STATIC_URL }}static/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+    </script>
 </body>
 
 </html>
