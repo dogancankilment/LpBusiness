@@ -50,19 +50,19 @@ urlpatterns = patterns('',
                            'home.views.new_support',
                            name='new_support'),
 
-                       url(r'^show-customers',
+                       url(r'^show-customer',
                            'home.views.show_customers',
                            name='show_customers'),
 
-                       url(r'^show-partners',
+                       url(r'^show-partner',
                            'home.views.show_partners',
                            name='show_partners'),
 
-                       url(r'^show-vendors',
+                       url(r'^show-vendor',
                            'home.views.show_vendors',
                            name='show_vendors'),
 
-                       url(r'^show-presales',
+                       url(r'^show-presale',
                            'home.views.show_presales',
                            name='show_presales'),
 
