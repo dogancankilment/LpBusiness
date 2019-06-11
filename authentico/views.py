@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from .forms import UserCreateForm, LoginForm
 from django.utils.translation import ugettext as _
 from django.core.context_processors import csrf
+from home.views import home
 
 
 @login_required()
