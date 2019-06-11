@@ -9,6 +9,8 @@ TEMPLATE_DEBUG = DEBUG
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 
+LOGIN_URL = '/login'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
