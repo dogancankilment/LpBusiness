@@ -61,9 +61,9 @@ class Vendor(models.Model):
 
 class PreSales(models.Model):
     company = models.CharField(max_length=100)
-    vendor = models.CharField(max_length=100)
-    partner = models.CharField(max_length=100)
-    customer = models.CharField(max_length=100)
+    vendor = models.ForeignKey(Vendor)
+    partner = models.ForeignKey(Partner)
+    customer = models.ForeignKey(Customer)
     poc_product = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
