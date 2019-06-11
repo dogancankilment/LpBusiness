@@ -78,6 +78,35 @@ urlpatterns = patterns('',
                            'home.views.show_support',
                            name='show_support'),
 
+                       url(r'^edit-customer-(?P<id>\w+)',
+                           'home.views.edit_customer',
+                           name='edit_customer'),
+
+                       # url(r'^edit-partner/(?P<id>\w+)',
+                       #     'home.views.edit_partner',
+                       #     name='edit_partner'),
+                       #
+                       # url(r'^edit-vendor/(?P<id>\w+)',
+                       #     'home.views.edit_vendor',
+                       #     name='edit_vendor'),
+                       #
+                       # url(r'^edit-presale/(?P<id>\w+)',
+                       #     'home.views.edit_presale',
+                       #     name='edit_presale'),
+                       #
+                       # url(r'^edit-postsale/(?P<id>\w+)',
+                       #     'home.views.edit_postsale',
+                       #     name='edit_postsale'),
+                       #
+                       # url(r'^edit-case/(?P<id>\w+)',
+                       #     'home.views.edit_case',
+                       #     name='edit_case'),
+                       #
+                       # url(r'^edit-support/(?P<id>\w+)',
+                       #     'home.views.edit_support',
+                       #     name='edit_support'),
+
+
                        )
 
 if settings.DEBUG:
