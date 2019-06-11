@@ -6,9 +6,12 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 
+@login_required()
 def home(request):
     customers_count = len(Customer.objects.all())
     vendor_count = len(Vendor.objects.all())
@@ -32,6 +35,7 @@ def home(request):
     return render_to_response("home/home.html", c)
 
 
+@login_required()
 def new_customer(request):
     page_title = "Customer"
 
@@ -68,6 +72,7 @@ def new_customer(request):
     return render_to_response("new/new-customer.html", c)
 
 
+@login_required()
 def new_partner(request):
     page_title = "Partner"
 
@@ -104,6 +109,7 @@ def new_partner(request):
     return render_to_response("new/new-partner.html", c)
 
 
+@login_required()
 def new_vendor(request):
     page_title = "Vendor"
 
@@ -140,6 +146,7 @@ def new_vendor(request):
     return render_to_response("new/new-vendor.html", c)
 
 
+@login_required()
 def new_presale(request):
     page_title = "Presales"
 
@@ -153,11 +160,19 @@ def new_presale(request):
     support_count = len(Support.objects.all())
 
     if request.POST:
-        new_one = Vendor()
-        new_one.fullname = request.POST["fullname"]
-        new_one.mail = request.POST["email"]
-        new_one.phone = request.POST["phone"]
+        new_one = PreSales()
+        new_one.company = request.POST["company"]
+        new_one.description = request.POST["description"]
+        new_one.poc_product = request.POST["product"]
+        new_one.status = request.POST["status"]
+        new_one.date =  request.POST["date"]
+
+        customer_name = request.POST["customer"]
+        get_customer = Customer.objects.get(fullname=customer_name)
+        new_one.customer = get_customer
+
         new_one.save()
+
 
         return redirect(reverse(home))
 
@@ -176,6 +191,7 @@ def new_presale(request):
     return render_to_response("new/new-presale.html", c)
 
 
+@login_required()
 def new_postsale(request):
     page_title = "PostSale"
 
@@ -212,6 +228,7 @@ def new_postsale(request):
     return render_to_response("new/new-postsale.html", c)
 
 
+@login_required()
 def new_case(request):
     page_title = "Case"
 
@@ -248,6 +265,7 @@ def new_case(request):
     return render_to_response("new/new-case.html", c)
 
 
+@login_required()
 def new_support(request):
     page_title = "Support"
 
@@ -284,6 +302,7 @@ def new_support(request):
     return render_to_response("new/new-support.html", c)
 
 
+@login_required()
 def show_customers(request):
     page_title = "Customers"
 
@@ -314,6 +333,7 @@ def show_customers(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_partners(request):
     page_title = "Partners"
 
@@ -341,6 +361,7 @@ def show_partners(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_vendors(request):
     page_title = "Vendors"
 
@@ -368,6 +389,7 @@ def show_vendors(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_presales(request):
     page_title = "Pre-Sales"
 
@@ -395,6 +417,7 @@ def show_presales(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_postsales(request):
     page_title = "Post-Sales"
 
@@ -422,6 +445,7 @@ def show_postsales(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_case(request):
     page_title = "Case"
 
@@ -449,6 +473,7 @@ def show_case(request):
     return render_to_response("show/show-customers.html", c)
 
 
+@login_required()
 def show_support(request):
     page_title = "Support"
 
@@ -474,3 +499,27 @@ def show_support(request):
     c.update(csrf(request))
 
     return render_to_response("show/show-customers.html", c)
+
+
+@login_required()
+def edit_customer(request, id):
+    current_obj = Customer.objects.get(id=id)
+
+    if request.POST:
+        # current_obj.fullname = form.cleaned_data.get('title')
+        current_obj.fullname = request.POST["fullname"]
+        current_obj.mail = request.POST["mail"]
+        current_obj.phone = request.POST["phone"]
+        current_obj.save()
+
+        return redirect(reverse(home))
+
+    else:
+        c = {"request": request,
+             "fullname": current_obj.fullname,
+             "mail": current_obj.mail,
+             "phone": current_obj.phone}
+
+        c.update(csrf(request))
+
+    return render_to_response('edit/edit-customer.html', c)
