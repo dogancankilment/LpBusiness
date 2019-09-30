@@ -1,0 +1,54 @@
+{% extends "home/blank.html" %}
+
+{% load staticfiles %}
+
+{% block default_content %}
+
+                <!-- .row -->
+                <div class="row el-element-overlay m-b-40">
+
+                    <!-- /.usercard -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="{{STATIC_URL}}static/plugins/images/trend-micro.png" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="/trendmicro-new-activity"><i class="icon-plus"></i></a></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Trend Micro </h3> <small></small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="{{STATIC_URL}}static/plugins/images/mobileiron.png" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="/mobileiron-new-activity"><i class="icon-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">MobileIron</h3> <small></small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+
+                    <!-- /.usercard-->
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+
+
+
+{% endblock default_content %}
