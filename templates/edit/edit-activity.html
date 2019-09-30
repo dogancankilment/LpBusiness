@@ -1,0 +1,242 @@
+{% extends "home/blank.html" %}
+
+{% load staticfiles %}
+
+{% block default_content %}
+
+<div class="row">
+    <form method="POST" class="form-horizontal">
+        <div class="col-md-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">{{ page_title }}</h3>
+                <p class="text-muted m-b-30 font-13"> Edit Me</p>
+
+                <div class="form-group">
+                    <label for="company" class="col-sm-3 control-label">Brand</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-bag"></i></div>
+                            <input type="text" class="form-control" id="company" name="company"
+                                   readonly value="{{ current_obj.company }}"></div>
+                            <select id="vendor" name="vendor" class="form-control">
+                                <option disabled selected>Brand Names</option>
+                                <option id="trendmicro" name="trendmicro" value="Trend Micro">Trend Micro</option>
+                                <option id="mobileiron" name="mobileiron" value="Mobile Iron">Mobile Iron</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="product" class="col-sm-3 control-label">Product / Solution</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-bookmark"></i></div>
+                            <input type="text" class="form-control" id="product" name="product"
+                                   value="{{ current_obj.product }}"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="datepicker-autoclose" class="col-sm-3 control-label">Date</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="datepicker-autoclose" id="datepicker-autoclose" value="{{ current_obj.date }}" placeholder="mm/dd/yyyy">
+                            <span class="input-group-addon"><i class="icon-calender"></i></span></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-agenda"></i></div>
+                            <textarea class="form-control" name="description" id="description" cols="40"
+                                      rows="5">{{ current_obj.description }}</textarea>
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-agenda"></i></div>
+                                    <input type="text" class="form-control" readonly value="{{ current_obj.activity.title }}">
+
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <label for="status" class="col-sm-3 control-label">Activity</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-briefcase"></i></div>
+                                <select id="activitytype" name="activitytype" class="form-control">
+                                    <option disabled selected>Activity Types</option>
+                                    {% for activitytype in all_activity_types %}
+                                    <option id="{{ activitytype.id }}" name="{{ activitytype.id }}"
+                                            value="{{ activitytype.id }}">{{ activitytype.title }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label"> </label>
+
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text" class="form-control" readonly value="{{ current_obj.customer.fullname }}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="existing_customers" class="col-sm-3 control-label">Customer</label>
+
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <select id="existing_customers" name="existing_customers" class="form-control">
+                                        <option disabled selected>Existing Customers</option>
+                                        {% for customer in all_customers %}
+                                        <option id="{{ customer.id }}" name="{{ customer.id }}"
+                                                value="{{ customer.id }}">{{ customer.fullname }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label"> </label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text" class="form-control" readonly value="Current: {{ current_obj.partner.fullname }}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="existing_partners" class="col-sm-3 control-label">Partner</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <select id="existing_partners" name="existing_partners" class="form-control">
+                                        <option disabled selected>Existing Partners</option>
+                                        {% for partner in all_partners %}
+                                        <option id="{{ partner.id }}" name="{{ partner.id }}" value="{{ partner.id }}">
+                                            {{ partner.fullname }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label"> </label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text" class="form-control" readonly value="Current: {{ current_obj.vendor.fullname }}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <label for="existing_vendors" class="col-sm-3 control-label">Vendor</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <select id="existing_vendors" name="existing_vendors" class="form-control">
+                                    <option disabled selected>Existing Vendors</option>
+                                    {% for vendor in all_vendors %}
+                                    <option id="{{ vendor.id }}" name="{{ vendor.id }}" value="{{ vendor.id }}">
+                                        {{ vendor.fullname }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label"> </label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text" class="form-control" readonly value="Current: {{ current_obj.officer.fullname }}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <label for="officer" class="col-sm-3 control-label">Officer</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <select id="officer" name="officer" class="form-control">
+                                    <option disabled selected>Existing Officers</option>
+                                    {% for officer in all_officers %}
+                                    <option id="{{ officer.id }}" name="{{ officer.id }}" value="{{ officer.id }}">
+                                        {{ officer.fullname }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label"> </label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text" class="form-control" readonly value="Current: {{ current_obj.status }}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <label for="status" class="col-sm-3 control-label">Status</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-briefcase"></i></div>
+                                <select id="status" name="status" class="form-control">
+                                    <option id="Open" name="Open" value="Open">Open</option>
+                                    <option id="Close" name="Close" value="Close">Close</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"/>
+
+                <div class="form-group m-b-0">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Save</button>
+                    </div>
+                </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock default_content %}
