@@ -14,7 +14,7 @@
                                             <span class="circle circle-md bg-danger"><i class="ti-clipboard"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 class="counter text-right m-t-15">23</h3>
+                                            <h3 class="counter text-right m-t-15">{{ case_count }}</h3>
                                         </li>
                                         <li class="col-middle">
                                             <h4>Case</h4>
@@ -32,7 +32,7 @@
                                             <span class="circle circle-md bg-info"><i class="ti-wallet"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 class="counter text-right m-t-15">76</h3>
+                                            <h3 class="counter text-right m-t-15">{{ support_count }}</h3>
                                         </li>
                                         <li class="col-middle">
                                             <h4>Support</h4>
@@ -50,7 +50,7 @@
                                             <span class="circle circle-md bg-success"><i class=" ti-shopping-cart"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 class="counter text-right m-t-15">93</h3>
+                                            <h3 class="counter text-right m-t-15">{{ presales_count }}</h3>
                                         </li>
                                         <li class="col-middle">
                                             <h4>Pre-Sales</h4>
@@ -68,7 +68,7 @@
                                             <span class="circle circle-md bg-warning"><i class="fa fa-dollar"></i></span>
                                         </li>
                                         <li class="col-last">
-                                            <h3 class="counter text-right m-t-15">83</h3>
+                                            <h3 class="counter text-right m-t-15">{{ postsales_count }}</h3>
                                         </li>
                                         <li class="col-middle">
                                             <h4>Post-Sales</h4>
@@ -90,7 +90,7 @@
                             <h3 class="box-title">Customers</h3>
                             <ul class="list-inline two-part">
                                 <li><i class="icon-people text-info"></i></li>
-                                <li class="text-right"><span class="counter">23</span></li>
+                                <li class="text-right"><span class="counter">{{ customers_count }}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <h3 class="box-title">Partners</h3>
                             <ul class="list-inline two-part">
                                 <li><i class="icon-people text-purple"></i></li>
-                                <li class="text-right"><span class="counter">169</span></li>
+                                <li class="text-right"><span class="counter">{{ partners_count }}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -108,23 +108,20 @@
                             <h3 class="box-title">Vendors</h3>
                             <ul class="list-inline two-part">
                                 <li><i class="icon-people text-danger"></i></li>
-                                <li class="text-right"><span class="">311</span></li>
+                                <li class="text-right"><span class="">{{ vendors_count }}</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">Projects</h3>
+                            <h3 class="box-title">Total Sales</h3>
                             <ul class="list-inline two-part">
                                 <li><i class="ti-agenda text-success"></i></li>
-                                <li class="text-right"><span class="">117</span></li>
+                                <li class="text-right"><span class="">{{ total_sales }}</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-    Len Customer: {{ len_customers }}<br>
-    Len Vendor: {{ len_vendors }}<br>
-    Len Partner: {{ len_partners }}
 
 {% endblock default_content %}
