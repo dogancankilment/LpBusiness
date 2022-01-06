@@ -1,7 +1,7 @@
 amqp==1.4.6
 anyjson==0.3.3
 billiard==3.3.0.23
-celery==3.1.13
+celery==5.2.2
 Django==1.4.8
 django-celery==3.1.10
 django-redis==3.7.1
