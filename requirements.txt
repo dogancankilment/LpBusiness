@@ -9,7 +9,7 @@ django-sites==0.7
 django-tagging==0.3.4
 ete2==2.2.1072
 feedparser==5.2.1
-html5lib==0.999
+html5lib==0.99999999
 ipdb==0.8
 ipython==2.1.0
 ipython-genutils==0.1.0
